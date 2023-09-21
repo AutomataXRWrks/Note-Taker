@@ -4,7 +4,7 @@ const fs = require('fs');
 const uniqid = require('uniqid')
 const { error } = require('console');
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -47,5 +47,5 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname,'/public/index.html'));
 });
 
-app.listen(port, () =>  console.log(`Example app listening at http://localhost:${port}`) );
+app.listen(PORT, () =>  console.log(`Example app listening at http://localhost:${PORT}`) );
 
